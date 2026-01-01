@@ -1,0 +1,121 @@
+/* style.css
+   Pure CSS UI for category cards.
+   - Responsive grid
+   - Rounded cards, soft shadows
+   - Hover lift + shadow
+   - RTL/LTR switch using html[lang]
+*/
+
+:root{
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #111827;
+  --radius: 14px;
+  --gap: 18px;
+}
+
+/* Directional rules: change lang on <html> to switch */
+html[lang="ar"]{ direction: rtl; }
+html[lang="en"]{ direction: ltr; }
+
+*{ box-sizing: border-box; }
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg),#ffffff 60%);
+  color: var(--accent);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  max-width:1100px;
+  margin:32px auto;
+  padding:20px;
+}
+
+.header{
+  margin-bottom:18px;
+}
+.title{
+  margin:0 0 6px 0;
+  font-size:20px;
+  font-weight:700;
+}
+.subtitle{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--gap);
+  margin-top:18px;
+}
+
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  padding:18px 12px;
+  text-align:center;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  min-height:130px;
+}
+
+.card:focus,
+.card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(16,24,40,0.12);
+  outline: none;
+}
+
+.icon{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  box-shadow: 0 6px 12px rgba(16,24,40,0.04) inset;
+}
+
+.cat{
+  margin:0;
+  font-size:15px;
+  font-weight:600;
+  color:var(--accent);
+  line-height:1.1;
+}
+
+.notes{
+  margin-top:22px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* Accessibility: allow keyboard focus */
+.card{ outline: none; }
+.card:focus-visible{ box-shadow: 0 18px 40px rgba(16,24,40,0.14); }
+
+/* Small screens tweak */
+@media (max-width:520px){
+  .container{ padding:14px; margin:18px auto; }
+  .title{ font-size:18px; }
+  .grid{ gap:12px; }
+  .card{ padding:14px; min-height:110px; }
+  .icon{ width:52px; height:52px; font-size:26px; }
+}
+
+/* When text is mixed, ensure card content remains centered regardless of direction */
+.card .cat{ text-align:center; }

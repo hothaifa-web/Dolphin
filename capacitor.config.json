@@ -1,0 +1,10 @@
+{
+  "appId": "com.example.ecomapp",
+  "appName": "EcomApp",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "http://localhost:5173",
+    "cleartext": true
+  }
+}

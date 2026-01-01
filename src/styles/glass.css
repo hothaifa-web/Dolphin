@@ -1,0 +1,30 @@
+:root{
+  --glass-bg: rgba(15,23,42,0.55); /* slate-900/55 */
+  --glass-border: rgba(148,163,184,0.06);
+  --primary: #f97316; /* vibrant orange */
+  --success: #10b981; /* emerald */
+}
+
+.glass-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+}
+
+.glass-navbar{
+  background: rgba(10,12,16,0.5);
+  border: 1px solid rgba(148,163,184,0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-button{
+  background: linear-gradient(90deg, rgba(249,115,22,0.12), rgba(249,115,22,0.08));
+  border: 1px solid rgba(249,115,22,0.12);
+  color: var(--primary);
+}
+
+.hero-slide-img{ object-fit: cover; width: 100%; height: 100%; }

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body,#root{height:100%}
+/* Set Tajawal as primary font for luxury Arabic experience and restore dark background */
+body{ font-family: Tajawal, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+/* Restore previous dark theme so admin pages keep their original look */
+body{@apply bg-slate-900 text-slate-100}
+
+/* Utility helpers for luxury buttons and glass cards */
+.glass-card{ background: rgba(255,255,255,0.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 20px 40px rgba(0,31,63,0.08); }
+.btn-shine{ position:relative; overflow:hidden }
+.btn-shine::after{ content:''; position:absolute; top:0; left:-120%; width:50%; height:100%; background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.28), rgba(255,255,255,0.06)); transform: skewX(-18deg); animation: shine 1.6s linear infinite; }
+.dolphin-float{ animation: float 6s ease-in-out infinite }
+
+/* Status badge glows */
+.badge-pending{ animation: pulseAmber 2.6s ease-in-out infinite }
+.badge-processing{ animation: pulseBlue 2.6s ease-in-out infinite }
+
+/* Categories page styles: modern card-based layout (RTL-aware) */
+.categories-section{
+	background: linear-gradient(180deg, rgba(248,250,251,0.6), rgba(248,250,251,1));
+	padding: 18px;
+	border-radius: 14px;
+}
+.category-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap:16px; }
+.category-card{
+	background: #ffffff;
+	border-radius: 12px;
+	padding: 14px;
+	display:flex;
+	align-items:center;
+	gap:12px;
+	box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+	cursor:pointer;
+	transition: transform .18s ease, box-shadow .18s ease;
+	border: 1px solid rgba(2,6,23,0.04);
+}
+.category-card:focus, .category-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.09); }
+.category-icon{ width:56px; height:56px; border-radius:10px; background: linear-gradient(180deg,#fff,#f5f7fa); display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow: inset 0 -6px 12px rgba(0,0,0,0.03); }
+.category-title{ font-weight:700; color: #0f1724; font-size:14px; }
+.category-sub{ font-size:12px; color:#64748b }
+
+/* Search input visual upgrade */
+.store-search{ width:100%; padding:10px 14px; border-radius:999px; border:1px solid rgba(2,6,23,0.08); box-shadow: 0 6px 18px rgba(2,6,23,0.04); }
+
+@media (max-width:640px){
+	.category-grid{ grid-template-columns: repeat(2, 1fr); gap:12px }
+	.category-icon{ width:48px; height:48px; font-size:20px }
+}
+
+/* Make sure motion keyframes come from tailwind config (class names map to keyframes) */
+
+/* Professional Offer Slider styles */
+.professional-offer { border-radius: 14px; overflow: hidden; position: relative; }
+.professional-offer .slide { display: flex; gap: 18px; align-items: center; padding: 20px; min-height: 140px; }
+.professional-offer .slide .left { width: 36%; min-width:220px }
+.professional-offer .slide .right { flex:1 }
+.professional-offer .offer-badge { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; background: linear-gradient(90deg,#ffd166,#ff7b7b); color:#07203b; box-shadow: 0 8px 20px rgba(2,6,23,0.18); }
+.professional-offer .offer-price { font-size:28px; font-weight:900; color:#00f0ff; text-shadow: 0 6px 20px rgba(0,240,255,0.12); }
+.professional-offer .glass-overlay { position:absolute; inset:0; pointer-events:none; background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02)); backdrop-filter: blur(8px); }
+.professional-offer .dots { display:flex; gap:8px; justify-content:center; margin-top:10px }
+.professional-offer .dot { width:8px; height:8px; border-radius:999px; background:rgba(255,255,255,0.45); }
+.professional-offer .dot.active { background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+
+/* Auto-slide animation helpers (used by JS) */
+@keyframes slideIn { from { transform: translateX(12px); opacity:0 } to { transform: translateX(0); opacity:1 } }
+.offer-appear { animation: slideIn .6s ease; }
+
+/* small responsive tweaks */
+@media (max-width:768px){
+	.professional-offer .slide { flex-direction:column; align-items:flex-start; gap:12px; }
+	.professional-offer .slide .left{ width:100%; min-width:0 }
+}
+

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تصنيفات المتجر — Category Cards</title>
+  <link rel="stylesheet" href="style.css">
+  <!--
+    Simple, pure HTML/CSS category cards UI.
+    - Change <html lang="ar"> to <html lang="en"> to switch to LTR.
+    - No JS required; CSS switches direction using the lang attribute.
+  -->
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">التصنيفات</h1>
+      <p class="subtitle">اختر فئة لعرض المنتجات</p>
+    </header>
+
+    <section class="grid" aria-label="Categories">
+      <!-- Card: use your real category names here; do not change data -->
+      <article class="card">
+        <div class="icon">🥐</div>
+        <h2 class="cat">مخبوزات</h2>
+      </article>
+
+      <article class="card">
+        <div class="icon">🥛</div>
+        <h2 class="cat">ألبان</h2>
+      </article>
+
+      <article class="card">
+        <div class="icon">🥩</div>
+        <h2 class="cat">اللحوم</h2>
+      </article>
+
+      <article class="card">
+        <div class="icon">🐟</div>
+        <h2 class="cat">أسماك</h2>
+      </article>
+
+      <article class="card">
+        <div class="icon">🍎</div>
+        <h2 class="cat">خضروات وفواكه</h2>
+      </article>
+
+      <article class="card">
+        <div class="icon">🍪</div>
+        <h2 class="cat">حلويات</h2>
+      </article>
+
+      <article class="card">
+        <div class="icon">☕</div>
+        <h2 class="cat">مشروبات</h2>
+      </article>
+
+      <article class="card">
+        <div class="icon">🧴</div>
+        <h2 class="cat">مستلزمات منزلية</h2>
+      </article>
+    </section>
+
+    <footer class="notes">
+      <p>عرض حدّ أقصى للشاشة — تصميم متجاوب بالعربية والإنجليزية.</p>
+    </footer>
+  </main>
+</body>
+</html>

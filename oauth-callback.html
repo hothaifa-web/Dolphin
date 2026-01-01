@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OAuth Callback</title>
+</head>
+<body>
+  <script>
+    (function(){
+      function parseHash(hash){
+        if(!hash) return {}
+        return hash.replace(/^#/, '').split('&').reduce((acc, pair)=>{
+          const [k,v] = pair.split('=')
+          acc[k] = decodeURIComponent(v||'')
+          return acc
+        }, {})
+      }
+      const params = parseHash(window.location.hash) || {}
+      const query = (function(q){ if(!q) return {}; return q.replace(/^\?/, '').split('&').reduce((a,p)=>{ const [k,v]=p.split('='); a[k]=decodeURIComponent(v||''); return a }, {}) })(window.location.search)
+      const payload = { ...query, ...params }
+      try{
+        if(window.opener && typeof window.opener.postMessage === 'function'){
+          window.opener.postMessage({ type: 'oauth:result', payload }, window.location.origin)
+        }
+      }catch(e){ }
+      // close after a short delay
+      setTimeout(()=>{
+        try{ window.close() }catch(e){}
+      }, 500)
+    })()
+  </script>
+  <div style="font-family: Inter, sans-serif; padding: 24px;">Authenticating…</div>
+</body>
+</html>
