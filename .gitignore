@@ -1,0 +1,30 @@
+# Node
+node_modules/
+dist/
+.env
+.env.local
+npm-debug.log*
+package-lock.json
+
+# Vite
+.vite/
+
+# Capacitor / Android
+android/build/
+android/app/build/
+android/.gradle/
+.gradle/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Misc
+coverage/
