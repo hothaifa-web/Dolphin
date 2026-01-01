@@ -19,17 +19,15 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install Java (Temurin 11)
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '11'
+   - name: Install Java (Temurin 17)
+  uses: actions/setup-java@v4
+  with:
+    distribution: 'temurin'
+    java-version: '17'
+
 
     - name: Setup Android SDK
-      uses: android-actions/setup-android@v2
-      with:
-        api-levels: '33'
-        build-tools: '33.0.2'
+  uses: android-actions/setup-android@v4
 
     - name: Install dependencies
       run: npm ci
