@@ -78,3 +78,16 @@ Security
 - Do not store secrets in `capacitor.config.json`.
 
 If you want, I can add a small `build-mobile.sh` script to automate `npm run build && npx cap copy android` and include CI notes.
+
+Trigger CI and download artifacts (very short):
+
+1) Add remote (only if not already set) and push your branch:
+
+```bash
+git remote add origin https://github.com/hothaifa-web/Dolphin.git
+git push -u origin master
+```
+
+2) Open the repository on GitHub → Actions → run the workflow (or wait for the push). When the Android workflow finishes download the artifact named `app-debug-apk` from the workflow run. For iOS download `ios-xcarchive` (unsigned archive) and export on a Mac with signing credentials if needed.
+
+If you want, push now and tell me when it's done — I will monitor the Actions run and fetch the artifact link for you.
